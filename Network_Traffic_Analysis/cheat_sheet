@@ -1,0 +1,46 @@
+Tcpdump command
+
+--version	prints the tcpdump and libpcap version strings then exits.
+-h		prints the help and usage information.
+-D		prints a list of usable network interfaces from which tcpdump can capture.
+-i <int>	Executes tcpdump and utilizes the interface specified to capture on.
+-w <path>	writes the output to a file.
+-r <path>	read the .pcap file.
+-r/w -l|grep <s>set stdout/stdin as line-buffered. and grep to look for specific patterns.
+host <ip>	only capture the traffic originating from or destined to the ip address or hostname.
+port <#>	filter the capture for anything sourcing from or destined to the port
+<proto name> 	capture any protocol traffic, examples : TCP/UDP/ICMP
+-n		Do not resolve hostnames.
+-nn		Do not resolve hostnames or well-known ports.
+-e		Will grab the ethernet header along with upper-layer data.
+-X		show contents of packets in hex and ASCII.
+-v		Increase the verbosity of output shown and saved.
+-c 		Grab a specific number of packets, then quit the program.
+-s		Defines how much bytes of a packet to grab.
+-portrange	Portrange allows us to specify a range of ports. (0-1024)
+less/greater <#>less or greater than the specific size packet we look for
+and/&&		boolean operator
+or		boolean operator
+not		boolean operator
+
+Common Ports and Protocols
+
+20	FTP-Data	Data channel for passing FTP files.
+21	FTP-Command	Control channel for issuing commands to an FTP server.
+22	SSH		Secure Shell Service port. Provides secure remote communications.
+23	Telnet		Telnet service porovides cleartext communications between hosts.
+25	SMTP		Simple Mail Transfer protocol. Utilized for email transmissions between servers.
+53	DNS		Domain Name Services. Provides name resolution with multiple protocols.
+69	TFTP		Trivial File Transfer Protocol. A lightweight, minimal-function transfer protocol.
+80	HTTP		HyperText Transfer Protocol. Provides dynamic web services
+88	Kerberos	Providing cryptographic network authentication
+110	POP3		Mail service utilized by clients to retrieve email from a server.
+111	RPC		Remote Procedure Call. Remote service for managing network file systems.
+115	SFTP		SSH File Transfer Protocol. An extension of SSH providing secure and reliable FTP.
+123	NTP		Network Time Protocol. Provides timing and sync services for network devices.
+137	Netbios-NS	Local network name resolution.
+139	Netbios-SSN	Provides session services for data transfer. Services like SMB can utilize it.
+179	BGP		Border Gateway Protocol. BGP is a protocol for exchanging routing info with autonomous systems worldwide.
+389	LDAP		Lightweight Directory Access Protocol. System agnostic authentication and authorization services.
+443	HTTPS		HyperText Transfer Protocol Secure. An extension of HTTP utilizing SSL/TLS for encrypting the communications.
+445	SMB		Server Message Block.	SMB allows for the sharing of services, files, networking ports, and printers between hosts.
