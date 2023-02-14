@@ -1,0 +1,50 @@
+cURL command
+
+curl -h		cURL help menu
+
+curl <target url>	Basic GET request
+
+curl -s -O <target url>	Download file
+
+curl -k <https://url>	Skip HTTPS (SSL) certificate validation
+
+curl <target url> -v 	Print full HTTP request/response details
+
+curl -I <target url> 	Send HEAD request (only prints response headers)
+
+curl -i <target url>	Print response headers and response body
+
+curl <target url> -A 'Mozilla/5.0'	Set User-Agent header
+
+curl -u admin:admin <http://ip:port/>	Set HTTP basic authorization credentials
+
+curl http://admin:admin@<ip>:<port>/	Pass HTTP basic authorization credentials in the URL
+
+curl -H 'Authorization: Basic YWRtaW46YWRtaW4=' http://<IP>:<PORT>/	Set request header #YWR... base64
+
+curl 'http://<IP>:<PORT>/search.php?search=<string>'	Pass GET parameters
+
+curl -X POST -d 'username=admin&password=admin' http://<IP>:<PORT>/	Send POST request with POST data
+
+curl -b 'PHPSESSID=<credentails_string> http://<IP>:<PORT>/	Set request cookies
+
+curl -X POST -d '{"search":"london"}' -H 'Content-Type: application/json' http://<IP>:<PORT>/search.php
+Send POST request with JSON data
+
+APIs command
+
+curl http://<IP>:<PORT>/api.php/city/london	Read entry
+
+curl -s http://<IP>:<PORT>/api.php/city/	Read all entries
+
+curl -X POST http://<IP>:<PORT>/api.php/city/ -d '{"city_name":"HTB_City", "country_name":"HTB"}' -H 'Content-Type: application/json'	Create (add) entry
+
+curl -X PUT http://<IP>:<PORT>/api.php/city/london -d '{"city_name":"HTB_City", "country_name":"HTB"}' -H 'Content-Type: application/json'	Update (modify) entry
+
+curl -X DELETE http://<IP>:<PORT>/api.php/city/New_HTB_City	Delete entry
+
+Browser DevTools
+
+CTRL+SHIFT+I or F12	Show devtools
+CRTL+SHIFT+E		Show Network tab
+CTRL+SHIFT+K		Show Console tab
