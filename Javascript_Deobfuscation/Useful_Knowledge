@@ -1,0 +1,17 @@
+JS Deobfuscation Websites
+
+JS Console, Prettier, Beautifier, JSNice
+
+Encode & Decode Command
+
+echo plaintext | base64		base64 encode
+
+echo cybertext | base64 -d	base64 decode
+
+echo plaintext | xxd -p		hex encode
+
+echo cybertext | xxd -p -r	hex decode
+
+echo plaintext | tr 'A-Za-z' 'N-ZA-Mn-za-m'	rot13 encode
+
+echo cybertext | tr 'A-Za-z' 'N-ZA-Mn-za-m'	rot13 decode #hit because rot13 = half rot, so twice is recover
